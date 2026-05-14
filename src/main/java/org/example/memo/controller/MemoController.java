@@ -1,9 +1,7 @@
 package org.example.memo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.example.memo.dto.MemoRequestDto;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/memo")
@@ -19,5 +17,9 @@ public class MemoController {
         return "안녕하세요 " + name + "님";
     }
 
+    @PostMapping
+    public String createMemo(@RequestBody MemoRequestDto request){
+        return "메모 저장 완료: " + request.getContent();
+    }
 
 }
